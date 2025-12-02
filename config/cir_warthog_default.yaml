@@ -29,6 +29,7 @@
     gyro_topic: /vn100/data_raw
     gyro_bias: -0.027524760208093454
 
+    tf_timeout: 10.0
     queue_size: 5
     graph_projection:
       origin_lat: 47.322101 # UTIAS: 43.78220
