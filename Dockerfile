@@ -145,8 +145,7 @@ USER ${USERID}:${GROUPID}
 
 SHELL ["/bin/bash", "-c"]
 
-RUN git clone --recurse-submodules https://github.com/utiasASRL/vtr3.git $VTRSRC
-RUN echo "YA"
+RUN git clone --recurse-submodules --branch fomo-eval https://github.com/utiasASRL/vtr3.git $VTRSRC
 RUN git clone https://github.com/utiasASRL/fomo_rtr_wrapper.git $VTRSRC/main/src/fomo_rtr_wrapper
 RUN touch $VTRSRC/main/src/deps/gpusurf/COLCON_IGNORE
 
