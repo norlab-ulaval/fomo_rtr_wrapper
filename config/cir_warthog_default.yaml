@@ -1,6 +1,6 @@
  /**:
   ros__parameters:
-  ############ system configuration ############
+  # system configuration
     log_to_file: true
     log_debug: true
     log_enabled:
@@ -60,7 +60,7 @@
         - 0.0
         - 0.0
         - 0.0                                                                                                                                                                  
-    ############ pipeline configuration ############
+    # pipeline configuration
     pipeline:
       type: radar
       preprocessing: 
@@ -68,7 +68,7 @@
         - extraction
         - filtering
       odometry:
-        #- gyro # you can turn off gyro and preintegration here
+        #- gyro you can turn off gyro and preintegration here
         - icp
         - mapping
         - vertex_test
@@ -88,7 +88,7 @@
         encoder_bin_size: 5600 # encoder bin size
       extraction:
         type: radar.pc_extractor
-        detector: modified_cacfar #modified_cacfar # choose detector \in (kstrongest, cen2018, cacfar, oscfar, modified_cacfar,caso_cfar)
+        detector: modified_cacfar #modified_cacfar choose detector \in (kstrongest, cen2018, cacfar, oscfar, modified_cacfar,caso_cfar)
         minr: 2.0 # mininum detection distance
         maxr: 100.0 # maximum detection distance
         # TODO: make cart_resolution an integer mult of radar_resolution
@@ -119,11 +119,11 @@
           threshold2: 0.0 # cfar: mult of mean, T = threshold * Z + threshold2 * mean + threshold3
           threshold3: 0.07
         modified_cacfar:
-          width: 101 # Old: 101, New: 41 # Elliot 101
-          guard: 7 # Old: 5, New: 2 # 5
-          threshold: 0.7 # Old: 0.2, New: 1.0 # was 0.7
+          width: 101 # Old: 101, New: 41  Elliot 101
+          guard: 7 # Old: 5, New: 2  5
+          threshold: 0.7 # Old: 0.2, New: 1.0  was 0.7
           threshold2: 0.0 # Old: 4.0, New: 0.0 cfar: mult of mean, T = threshold * Z + threshold2 * mean + threshold3
-          threshold3: 0.23 # Old: 0.0, New: 0.08 # was 0.23
+          threshold3: 0.23 # Old: 0.0, New: 0.08  was 0.23
         caso_cfar:
           width: 101 # was 101
           guard: 5 # was 5
@@ -154,11 +154,11 @@
         # continuous time estimation
         traj_num_extra_states: 0
         traj_qc_diag: [1.0, 0.001, 0.0001, 0.0001, 0.0001, 0.001]
-        # ICP parameters # TOTUNE
+        # ICP parameters  TOTUNE
         num_threads: 10 # 8
         first_num_steps: 2 # 2
         initial_max_iter: 4 # 4
-        initial_max_pairing_dist: 1.5 # 5.0 # now same as lidar
+        initial_max_pairing_dist: 1.5 # 5.0  now same as lidar
         initial_max_planar_dist: 1.0 # 5.0
         refined_max_iter: 15 # 50
         refined_max_pairing_dist: 1.0 # 5.0
@@ -173,7 +173,7 @@
         max_iterations: 1
         # gyro_cov: 1e-4
 
-        # threshold #TOTUNE
+        # threshold TOTUNE
         min_matched_ratio: 0.40
 
         visualize: true
@@ -213,7 +213,7 @@
         type: radar.localization_icp
 
         use_pose_prior: true
-        # ICP parameters #TO TUNE
+        # ICP parameters TO TUNE
         num_threads: 10 # 8
         first_num_steps: 4 # 2
         initial_max_iter: 8 # 4
@@ -226,11 +226,11 @@
         huber_delta: 1.0 # 1.0
         cauchy_k: 0.2
 
-        # steam parameters #TOTUNE
+        # steam parameters TOTUNE
         verbose: false
         max_iterations: 3
 
-        # threshold #TOTUNE
+        # threshold TOTUNE
         min_matched_ratio: 0.30
 
       memory:
